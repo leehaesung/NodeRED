@@ -28,4 +28,15 @@
 [{"id":"6cc496b9.5ee938","type":"random","z":"aca45f70.7fe43","name":"random number","low":"0","high":"10","inte":"true","x":460,"y":260,"wires":[["6b211122.583ca"]]},{"id":"72992d28.8b9cd4","type":"debug","z":"aca45f70.7fe43","name":"debug","active":false,"console":"false","complete":"payload","x":810,"y":260,"wires":[]},{"id":"4d10738c.91e21c","type":"inject","z":"aca45f70.7fe43","name":"","topic":"","payload":"","payloadType":"date","repeat":"5","crontab":"","once":false,"x":279,"y":260,"wires":[["6cc496b9.5ee938"]]},{"id":"6b211122.583ca","type":"function","z":"aca45f70.7fe43","name":"generate sentence","func":"number = msg.payload;\nif(number < 5){\n    msg.payload = \"Number \" + number + \" is a low number\";\n} else {\n    msg.payload = \"Number \" + number + \" is a high number\";\n}\nreturn msg;","outputs":1,"noerr":0,"x":650,"y":260,"wires":[["72992d28.8b9cd4"]]}]
 ```````````````````````````````````````````````````
 
+* generate sentence:
+```````````````````````````````````````````````````
+number = msg.payload;
+if(number < 5){
+    msg.payload = "Number " + number + " is a low number";
+} else {
+    msg.payload = "Number " + number + " is a high number";
+}
+return msg;
+```````````````````````````````````````````````````
+
 < END >
