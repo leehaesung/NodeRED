@@ -48,4 +48,31 @@ return msg;
 [{"id":"5a3c1199.b44fe","type":"inject","z":"aefb1539.565828","name":"inject","topic":"Number ","payload":"","payloadType":"date","repeat":"5","crontab":"","once":false,"x":189.66665649414062,"y":129.66665649414062,"wires":[["3e5ff6a2.dbcc5a"]]},{"id":"4a0e753c.e6104c","type":"debug","z":"aefb1539.565828","name":"output","active":false,"console":"false","complete":"payload","x":769.6666564941406,"y":129.66665649414062,"wires":[]},{"id":"3e5ff6a2.dbcc5a","type":"random","z":"aefb1539.565828","name":"random","low":"1","high":"10","inte":"true","x":399.6666564941406,"y":129.66665649414062,"wires":[["3a60847a.d58fac"]]},{"id":"3a60847a.d58fac","type":"function","z":"aefb1539.565828","name":"function","func":"if(msg.payload < 5)\n{\n  a = msg.payload.number = \"Number \";\n  b = msg.payload;\n  c = msg.paylaod = \" is a low number\";\n\n  msg.payload = a + b + c;\n  \n  return msg;\n}\n\nelse if(msg.payload > 5)\n{\n  a = msg.payload.number = \"Number \";\n  b = msg.payload;\n  c = msg.paylaod = \" is a high number\";\n\n  msg.payload = a + b + c;\n  \n  return msg;\n}\n\nreturn null;","outputs":1,"noerr":0,"x":599.6666564941406,"y":129.66665649414062,"wires":[["4a0e753c.e6104c"]]}]
 ```````````````````````````````````````````````````
 
+function:
+```````````````````````````````````````````````````
+if(msg.payload < 5)
+{
+  a = msg.payload.number = "Number ";
+  b = msg.payload;
+  c = msg.paylaod = " is a low number";
+
+  msg.payload = a + b + c;
+  
+  return msg;
+}
+
+else if(msg.payload > 5)
+{
+  a = msg.payload.number = "Number ";
+  b = msg.payload;
+  c = msg.paylaod = " is a high number";
+
+  msg.payload = a + b + c;
+  
+  return msg;
+}
+
+return null;
+```````````````````````````````````````````````````
+
 < END >
