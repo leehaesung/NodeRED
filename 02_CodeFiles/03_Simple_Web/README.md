@@ -6,7 +6,7 @@
 
 ***
 
-* Basic Functions
+* Basic Web
 
 ![simpleWeb01.png](https://github.com/leehaesung/NodeRED/blob/master/02_CodeFiles/03_Simple_Web/simpleWeb01.png)
 ```````````````````````````````````````````````````
