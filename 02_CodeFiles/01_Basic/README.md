@@ -75,4 +75,75 @@ else if(msg.payload > 5)
 return null;
 ```````````````````````````````````````````````````
 
+***
+
+* Restaurant Menus Web - (3)
+
+ ![menuWeb.png](https://github.com/leehaesung/NodeRED/blob/master/02_CodeFiles/01_Basic/ImageFiles/menuWeb.png)
+ ![menuWeb_output.png](https://github.com/leehaesung/NodeRED/blob/master/02_CodeFiles/01_Basic/ImageFiles/menuWeb_output.png)
+ ![menuSpecials_output.png](https://github.com/leehaesung/NodeRED/blob/master/02_CodeFiles/01_Basic/ImageFiles/menuSpecials_output.png)
+```````````````````````````````````````````````````
+[{"id":"b0c3f86a.278208","type":"template","z":"fd8b5730.ad96f8","name":"format html page","field":"payload","fieldType":"msg","format":"handlebars","syntax":"mustache","template":"<h1>Drinks available on : {{payload.day}}</h1>\n\n<ul>\n{{#payload.drinks}}\n<li>{{drink}}</li>    \n{{/payload.drinks}}\n</ul>\n\n<h3>Specials:</h3> \n<hr>\n<ul>\n{{^payload.specials}}\nNone today, sorry      \n{{/payload.specials}}\n\n{{#payload.specials}}\n<li>{{drink}}</li>\n{{/payload.specials}}\n</ul>","x":530,"y":177,"wires":[["e3db6dd2.464e9"]]},{"id":"ea682cbc.ccf68","type":"function","z":"fd8b5730.ad96f8","name":"Drinks","func":"msg.payload =   \n         {'day':'Monday',\n          'drinks':[{'drink': 'coffee'}, \n                    {'drink': 'tea'}, \n                    {'drink': 'orange juice'}]\n         };\nreturn msg;","outputs":1,"noerr":0,"x":330,"y":157,"wires":[["b0c3f86a.278208"]]},{"id":"a5bf2762.e254c8","type":"function","z":"fd8b5730.ad96f8","name":"Specials","func":"msg.payload = \n         {'day':'Monday',\n          'drinks':[{'drink': 'coffee'}, \n                    {'drink': 'tea'}, \n                    {'drink': 'orange juice'}],\n          'specials':[{'drink': 'hot chocolate'}, \n                      {'drink': 'espresso'}]\n         };\nreturn msg;","outputs":1,"noerr":0,"x":340,"y":197,"wires":[["b0c3f86a.278208"]]},{"id":"62bf888e.ceedc8","type":"http in","z":"fd8b5730.ad96f8","name":"/menu","url":"/menu","method":"get","swaggerDoc":"","x":170,"y":157,"wires":[["ea682cbc.ccf68"]]},{"id":"9dfe7bc3.42ec18","type":"http response","z":"fd8b5730.ad96f8","name":"","x":892.9999771118164,"y":177,"wires":[]},{"id":"24dfc2d4.f6c3be","type":"http in","z":"fd8b5730.ad96f8","name":"/specials","url":"/specials","method":"get","swaggerDoc":"","x":180,"y":197,"wires":[["a5bf2762.e254c8"]]},{"id":"e3db6dd2.464e9","type":"function","z":"fd8b5730.ad96f8","name":"setHTTPheader","func":"// If sending JSON data the content type is:\n//msg.headers={\"Content-Type\":\"application/json\"}\n\n// For HTML use the content type line below:\nmsg.headers={\"Content-Type\":\"text/html\"};\nreturn msg;","outputs":1,"noerr":0,"x":720,"y":177,"wires":[["9dfe7bc3.42ec18"]]}]
+```````````````````````````````````````````````````
+
+Drinks
+```````````````````````````````````````````````````
+msg.payload =   
+         {'day':'Monday',
+          'drinks':[{'drink': 'coffee'}, 
+                    {'drink': 'tea'}, 
+                    {'drink': 'orange juice'}]
+         };
+return msg;
+```````````````````````````````````````````````````
+
+Specials
+```````````````````````````````````````````````````
+msg.payload = 
+         {'day':'Monday',
+          'drinks':[{'drink': 'coffee'}, 
+                    {'drink': 'tea'}, 
+                    {'drink': 'orange juice'}],
+          'specials':[{'drink': 'hot chocolate'}, 
+                      {'drink': 'espresso'}]
+         };
+return msg;
+```````````````````````````````````````````````````
+
+format html page
+```````````````````````````````````````````````````
+<h1>Drinks available on : {{payload.day}}</h1>
+
+<ul>
+{{#payload.drinks}}
+<li>{{drink}}</li>    
+{{/payload.drinks}}
+</ul>
+
+<h3>Specials:</h3> 
+<hr>
+<ul>
+{{^payload.specials}}
+None today, sorry      
+{{/payload.specials}}
+
+{{#payload.specials}}
+<li>{{drink}}</li>
+{{/payload.specials}}
+</ul>
+```````````````````````````````````````````````````
+
+setHTTPheader
+```````````````````````````````````````````````````
+// If sending JSON data the content type is:
+//msg.headers={"Content-Type":"application/json"}
+
+// For HTML use the content type line below:
+msg.headers={"Content-Type":"text/html"};
+return msg;
+```````````````````````````````````````````````````
+
+
+
+
 < END >
