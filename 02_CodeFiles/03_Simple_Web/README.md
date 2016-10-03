@@ -48,4 +48,36 @@ function:
 <h5> What's today? {{payload.day}} </h5>
 ```````````````````````````````````````````````````
 
+***
+
+* Basic (JavaScript + HTML) Web 02
+
+![simpleWeb03.png](https://github.com/leehaesung/NodeRED/blob/master/02_CodeFiles/03_Simple_Web/simpleWeb03.png)
+![simpleWeb03_output.png](https://github.com/leehaesung/NodeRED/blob/master/02_CodeFiles/03_Simple_Web/simpleWeb03_output.png)
+
+```````````````````````````````````````````````````
+[{"id":"f2ab6a8f.36e608","type":"http in","z":"fd8b5730.ad96f8","name":"/simpleweb02","url":"/simpleweb02","method":"get","swaggerDoc":"","x":190,"y":340,"wires":[["364b0dd7.d857e2"]]},{"id":"9c23bea5.ade7c","type":"function","z":"fd8b5730.ad96f8","name":"setHTTPheader","func":"// If sending JSON data the content type is:\n//msg.headers={\"Content-Type\":\"application/json\"}\n\n// For HTML use the content type line below:\nmsg.headers={\"Content-Type\":\"text/html\"};\nreturn msg;","outputs":1,"noerr":0,"x":820,"y":340,"wires":[["9adcfb72.1cd328"]]},{"id":"c22da339.5f8c","type":"template","z":"fd8b5730.ad96f8","name":"simple html page","field":"payload","fieldType":"msg","format":"handlebars","syntax":"mustache","template":"<h1> What's data? <h1> \n</h2> This is temperature data: {{payload.temperature}} degree celsius </h2>\n","x":610,"y":340,"wires":[["9c23bea5.ade7c"]]},{"id":"364b0dd7.d857e2","type":"function","z":"fd8b5730.ad96f8","name":"Temp DATA Buffer","func":"msg.payload = {'temperature':30.87};\nreturn msg;","outputs":1,"noerr":0,"x":390,"y":340,"wires":[["c22da339.5f8c"]]},{"id":"9adcfb72.1cd328","type":"http response","z":"fd8b5730.ad96f8","name":"","x":1008,"y":340,"wires":[]}]
+```````````````````````````````````````````````````
+
+(1) Temp DATA Buffer:
+```````````````````````````````````````````````````
+msg.payload = {'temperature':30.87};
+return msg;
+```````````````````````````````````````````````````
+
+(2) simple html page:
+```````````````````````````````````````````````````
+<h1> What's data? <h1> 
+</h2> This is temperature data: {{payload.temperature}} degree celsius </h2>
+```````````````````````````````````````````````````
+
+(3) setHTTPheader:
+```````````````````````````````````````````````````
+// If sending JSON data the content type is:
+//msg.headers={"Content-Type":"application/json"}
+
+// For HTML use the content type line below:
+msg.headers={"Content-Type":"text/html"};
+return msg;
+```````````````````````````````````````````````````
 
