@@ -8,3 +8,7 @@
 * Push sensor data to services like Twitter.
 * Perform complex analysis on data with ease.
 
+## Websites
+* [Node-RED Library](http://flows.nodered.org/)
+* [NodeRED Google Groups](https://groups.google.com/forum/#!forum/node-red)
+* [thethingsnetwork](https://www.thethingsnetwork.org/forum/)
