@@ -106,7 +106,70 @@ return msg;
 
 ***
 
-This is fixing...
+* Gathring a single latitude from Python GPS Simulator
+
+![GathringGPSDATA.png](https://github.com/leehaesung/NodeRED/blob/master/02_CodeFiles/04_GPS_Web/GathringGPSDATA.png)
+![GathringGPSDATA_output.png](https://github.com/leehaesung/NodeRED/blob/master/02_CodeFiles/04_GPS_Web/GathringGPSDATA_output.png)
 ```````````````````````````````````````````````````
-[{"id":"baafc835.351af8","type":"ibmiot in","z":"fd8b5730.ad96f8","authentication":"boundService","apiKey":"","inputType":"cmd","deviceId":"iotgateway001","applicationId":"","deviceType":"iotgateway001","eventType":"iotgateway001","commandType":"","format":"json","name":"iotgateway001","service":"registered","allDevices":"","allApplications":true,"allDeviceTypes":"","allEvents":false,"allCommands":"","allFormats":false,"qos":"0","x":180,"y":560,"wires":[["f59b20c0.7a211","fe6ccf1f.8a5dc"]]},{"id":"183b50ac.07d49f","type":"http in","z":"fd8b5730.ad96f8","name":"/gatherFromDevice","url":"/gatherFromDevice","method":"get","swaggerDoc":"","x":190,"y":440,"wires":[["48d6aeaa.02c91"]]},{"id":"1c631d7c.7c0513","type":"function","z":"fd8b5730.ad96f8","name":"setHTTPheader","func":"// If sending JSON data the content type is:\n//msg.headers={\"Content-Type\":\"application/json\"};\n\n// For HTML use the content type line below:\nmsg.headers={\"Content-Type\":\"text/html\"}\nreturn msg;","outputs":1,"noerr":0,"x":860,"y":440,"wires":[["252a44c.c728abc"]]},{"id":"738fef21.2985a","type":"debug","z":"fd8b5730.ad96f8","name":"","active":true,"console":"false","complete":"false","x":850,"y":480,"wires":[]},{"id":"f59b20c0.7a211","type":"cloudant out","z":"fd8b5730.ad96f8","name":"NoSQLDB For GPS","cloudant":"9488e297.3a85a","database":"gpsNoSQLDB","service":"_ext_","payonly":true,"operation":"insert","x":450,"y":560,"wires":[]},{"id":"c43f3b86.3f2b98","type":"debug","z":"fd8b5730.ad96f8","name":"","active":true,"console":"false","complete":"false","x":630,"y":620,"wires":[]},{"id":"db24e1e6.7ac39","type":"template","z":"fd8b5730.ad96f8","name":"simple html page","field":"payload","fieldType":"msg","format":"handlebars","syntax":"mustache","template":"<h1> What's data? {{ data.d }} </h1>\n<h2> What's data? {{ data }} </h2>\n<h3> What's data? {{ payload }} </h3>\n<h4> What's data? {{ payload.d }} </h4>\n<h5> What's data? {{ payload.data }} </h5>\n<h6> What's data? {{ payload.data.d }} </h6>\n<h7> What's data? {{ msg.payload }} </h7>","x":650,"y":440,"wires":[["1c631d7c.7c0513","738fef21.2985a"]]},{"id":"48d6aeaa.02c91","type":"function","z":"fd8b5730.ad96f8","name":"gatherGpsData","func":"context.data = context.data || new Object();\ncontext.data.payload = msg.payload.d;\nreturn msg;\n\n//msg.payload = msg.payload.d;\n//return msg;","outputs":1,"noerr":0,"x":440,"y":440,"wires":[["db24e1e6.7ac39","73f0e209.4df1cc"]]},{"id":"73f0e209.4df1cc","type":"debug","z":"fd8b5730.ad96f8","name":"","active":true,"console":"false","complete":"false","x":631,"y":480,"wires":[]},{"id":"252a44c.c728abc","type":"http response","z":"fd8b5730.ad96f8","name":"","x":1050,"y":440,"wires":[]},{"id":"fe6ccf1f.8a5dc","type":"function","z":"fd8b5730.ad96f8","name":"StoringData","func":"var d = msg.payload;\nreturn [[d,msg]];","outputs":1,"noerr":0,"x":430,"y":620,"wires":[["c43f3b86.3f2b98"]]},{"id":"9488e297.3a85a","type":"cloudant","z":"fd8b5730.ad96f8","host":"0bb93e00-1487-45cd-b407-22ef76beb614-bluemix.cloudant.com","name":"gpsNoSQLDB"}]
+[{"id":"edfa8b96.7979c8","type":"http in","z":"38a6560e.175e8a","name":"/gatherFromDevice","url":"/gatherFromDevice","method":"get","swaggerDoc":"","x":170,"y":300,"wires":[["7dc0c9e9.0134a8"]]},{"id":"f2fa2518.5fc8e8","type":"function","z":"38a6560e.175e8a","name":"setHTTPheader","func":"// If sending JSON data the content type is:\n//msg.headers={\"Content-Type\":\"application/json\"};\n\n// For HTML use the content type line below:\nmsg.headers={\"Content-Type\":\"text/html\"}\nreturn msg;","outputs":1,"noerr":0,"x":840,"y":300,"wires":[["c50b72b.7659e9"]]},{"id":"d2b2ca21.e5e598","type":"debug","z":"38a6560e.175e8a","name":"","active":true,"console":"false","complete":"false","x":830,"y":340,"wires":[]},{"id":"1e20af41.4bc971","type":"debug","z":"38a6560e.175e8a","name":"","active":true,"console":"false","complete":"false","x":610,"y":100,"wires":[]},{"id":"878c8694.5c8388","type":"template","z":"38a6560e.175e8a","name":"simple html page","field":"payload","fieldType":"msg","format":"handlebars","syntax":"mustache","template":"<h1> What's the data from a GPS Sensor? </h1>\n<h1> This is a single latitude : {{payload}} </h1>\n","x":630,"y":300,"wires":[["f2fa2518.5fc8e8","d2b2ca21.e5e598"]]},{"id":"7dc0c9e9.0134a8","type":"function","z":"38a6560e.175e8a","name":"Retrieving Gps Data","func":"//context.data = context.data || new Object();\n//context.data.payload = msg.payload.d;\n//return msg;\n\n//var d = context.global.d;\n\nmsg.payload = JSON.stringify(context.global.d);\n\nreturn msg;","outputs":1,"noerr":0,"x":402,"y":300,"wires":[["878c8694.5c8388","d9c1830.10d748"]]},{"id":"d9c1830.10d748","type":"debug","z":"38a6560e.175e8a","name":"","active":true,"console":"false","complete":"false","x":611,"y":340,"wires":[]},{"id":"c50b72b.7659e9","type":"http response","z":"38a6560e.175e8a","name":"","x":1030,"y":300,"wires":[]},{"id":"b236c6a4.74a8b8","type":"function","z":"38a6560e.175e8a","name":"Gathering GPS Data","func":"var d = msg.payload.d;\ncontext.global.d = d;\nreturn msg;\n","outputs":1,"noerr":0,"x":400,"y":100,"wires":[["1e20af41.4bc971"]]},{"id":"ed70df3c.e7d3f","type":"ibmiot in","z":"38a6560e.175e8a","authentication":"boundService","apiKey":"","inputType":"evt","deviceId":"iotgateway001","applicationId":"","deviceType":"iotgateway001","eventType":"+","commandType":"","format":"json","name":"iotgateway001","service":"registered","allDevices":"","allApplications":"","allDeviceTypes":"","allEvents":true,"allCommands":"","allFormats":"","qos":0,"x":170,"y":100,"wires":[["b236c6a4.74a8b8","4f586701.7fb768"]]},{"id":"4f586701.7fb768","type":"debug","z":"38a6560e.175e8a","name":"","active":true,"console":"false","complete":"false","x":370,"y":160,"wires":[]},{"id":"592c566a.388e28","type":"comment","z":"38a6560e.175e8a","name":"From GPS Sensor to IBM Cloud","info":"","x":215,"y":54,"wires":[]},{"id":"9a62cec4.9e34","type":"comment","z":"38a6560e.175e8a","name":"Web","info":"","x":130,"y":260,"wires":[]}]
 ```````````````````````````````````````````````````
+
+(1) Python GPS Simulator
+```````````````````````````````````````````````````
+import time
+import numpy as np
+import ibmiotf.gateway
+from sense_hat import SenseHat
+import math
+
+try:
+    gatewayOptions = {"org": "of6naa", "type": "iotgateway001", "id": "iotgateway001", "auth-method": "token", "auth-token": "12345678"}
+    gatewayCli = ibmiotf.gateway.Client(gatewayOptions)
+    gatewayCli.connect()
+
+    while True:
+        myData = {'d':-33.87} # a single latitude
+        gatewayCli.publishDeviceEvent("iotgateway001", "iotgateway001", "iotgateway001", "json", myData, qos=1 )
+        time.sleep(5)
+
+
+except ibmiotf.ConnectionException  as e:
+    print(e)
+```````````````````````````````````````````````````
+
+(2) Gathering GPS Data
+```````````````````````````````````````````````````
+var d = msg.payload.d;
+context.global.d = d;
+return msg;
+```````````````````````````````````````````````````
+
+(3) Retrieving Gps Data
+```````````````````````````````````````````````````
+msg.payload = JSON.stringify(context.global.d);
+
+return msg;
+```````````````````````````````````````````````````
+
+(4) simple html page
+```````````````````````````````````````````````````
+<h1> What's the data from a GPS Sensor? </h1>
+<h1> This is a single latitude : {{payload}} </h1>
+```````````````````````````````````````````````````
+
+(5) setHTTPheader
+```````````````````````````````````````````````````
+// If sending JSON data the content type is:
+//msg.headers={"Content-Type":"application/json"};
+
+// For HTML use the content type line below:
+msg.headers={"Content-Type":"text/html"}
+return msg;
+```````````````````````````````````````````````````
+
+
+
+
+
+
+
