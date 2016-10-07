@@ -19,13 +19,6 @@
 * [thethingsnetwork](https://www.thethingsnetwork.org/forum/)
 
 
-***
 
-## Example
-
-![example_NodeRED.png](https://github.com/leehaesung/NodeRED/blob/master/example_NodeRED.png)
-![example02_NodeRED.png](https://github.com/leehaesung/NodeRED/blob/master/example02_NodeRED.png)
-
-***
 
 [END]
