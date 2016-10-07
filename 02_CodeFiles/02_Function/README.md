@@ -45,5 +45,74 @@ if (msg.topic == "Topic1") {
 <h1> Random Number : {{ payload }} </h1>
 ```````````````````````````````````````````````````
 
+* IBM Default Sample
+
+![DEFAULTnode_IBM_DEFAULT.png](https://github.com/leehaesung/NodeRED/blob/master/02_CodeFiles/02_Function/DEFAULTnode_IBM_DEFAULT.png)
+
+```````````````````````````````````````````````````
+[{"id":"3e77d543.c1882a","type":"ibmiot in","z":"463d14f9.38077c","authentication":"quickstart","apiKey":"","inputType":"evt","deviceId":"LivingRoomThermo1","applicationId":"","deviceType":"+","eventType":"+","commandType":"","format":"json","name":"IBM IoT App In","service":"quickstart","allDevices":false,"allApplications":false,"allDeviceTypes":true,"allEvents":true,"allCommands":false,"allFormats":false,"x":100,"y":400,"wires":[["ae0082ac.51ff8","c0c482df.3f3b8"]]},{"id":"ae0082ac.51ff8","type":"function","z":"463d14f9.38077c","name":"temp","func":"return {payload:msg.payload.d.temp};","outputs":1,"x":290,"y":400,"wires":[["ff6ad0d9.00953"]]},{"id":"ff6ad0d9.00953","type":"switch","z":"463d14f9.38077c","name":"temp thresh","property":"payload","propertyType":"msg","rules":[{"t":"lte","v":"40","vt":"str"},{"t":"gt","v":"40","vt":"str"}],"checkall":"true","outputs":2,"x":450,"y":400,"wires":[["80621eff.7f9de"],["8e1706a.f71e8f8"]]},{"id":"5dad02b7.a252fc","type":"debug","z":"463d14f9.38077c","name":"cpu status","active":true,"complete":"false","x":790,"y":400,"wires":[]},{"id":"c0c482df.3f3b8","type":"debug","z":"463d14f9.38077c","name":"device data","active":true,"console":"false","complete":"true","x":310,"y":480,"wires":[]},{"id":"80621eff.7f9de","type":"template","z":"463d14f9.38077c","name":"safe","fieldType":"msg","syntax":"mustache","template":"Temperature ({{payload}}) within safe limits","x":610,"y":380,"wires":[["5dad02b7.a252fc"]]},{"id":"8e1706a.f71e8f8","type":"template","z":"463d14f9.38077c","name":"danger","fieldType":"msg","syntax":"mustache","template":"Temperature ({{payload}}) critical","x":620,"y":420,"wires":[["5dad02b7.a252fc"]]},{"id":"cbe1a0b7.cd877","type":"ibmiot out","z":"463d14f9.38077c","authentication":"boundService","apiKey":"","outputType":"evt","deviceId":"LivingRoomThermo1","deviceType":"thermostat","eventCommandType":"update","format":"json","data":"temp:10","name":"Send to IBM IoT Platform","service":"registered","x":570,"y":120,"wires":[]},{"id":"5917a925.6a3c08","type":"inject","z":"463d14f9.38077c","name":"Send Data","topic":"","payload":"true","payloadType":"bool","repeat":"","crontab":"","once":false,"x":100,"y":120,"wires":[["6b4a591c.014b18"]]},{"id":"6b4a591c.014b18","type":"function","z":"463d14f9.38077c","name":"Device payload","func":"// Thermostat's location:\nvar longitude1 = -98.49;\nvar latitude1 = 29.42;\n\n// Array of pseudo random temperatures\nvar temp1 = [15,17,18.5,50,21.5,23,24,22.2,80,95];\n\n// Array of pseudo random relative humidities\nvar humidity1 = [50,55,61,68,65,60,53,49,45,47];\n\n// Counter to select from array.\nvar counter1 = context.get('counter1')||0;\ncounter1 = counter1+1;\nif(counter1 > 9) counter1 = 0;\ncontext.set('counter1',counter1);\n\n// Create MQTT message in JSON\nmsg = {\n  payload: JSON.stringify(\n    {\n      d:{\n        \"temp\" : temp1[counter1],\n        \"humidity\" : humidity1[counter1],\n        \"location\" :\n        {\n          \"longitude\" : longitude1,\n          \"latitude\" : latitude1\n        },\n      }\n    }\n  )\n};\nreturn msg;\n","outputs":1,"noerr":0,"x":320,"y":120,"wires":[["cbe1a0b7.cd877","805c97ee.3ed9e8"]]},{"id":"805c97ee.3ed9e8","type":"debug","z":"463d14f9.38077c","name":"Debug output payload","active":true,"console":"false","complete":"payload","x":560,"y":180,"wires":[]},{"id":"86df0b6c.af90c8","type":"comment","z":"463d14f9.38077c","name":"Device Simulator","info":"Sends simulated device sensor data to IBM Watson IoT Plaform.\n\nCan be configured to send on click or on an automatic interval.\n\n\n#Prerequisite\nOutput node device type and device ID need to match a device that it registered in a running IBM Watson IoT Platform service.\n\n# Watson IoT Platform docs\n[Connecting devices](https://www.bluemix.net/docs/services/IoT/iotplatform_task.html)","x":100,"y":40,"wires":[]},{"id":"141b7c7.ad42a84","type":"comment","z":"463d14f9.38077c","name":"1. Configure target","info":"","x":550,"y":80,"wires":[]},{"id":"c2dd8ed5.7dd7f","type":"comment","z":"463d14f9.38077c","name":"2. Click to send data","info":"To automatically send data:\n1. Change *Repeat* to interval.\n2. Click Deploy button.\n","x":110,"y":160,"wires":[]},{"id":"7926c7b2.86d938","type":"comment","z":"463d14f9.38077c","name":"Temperature Monitor","info":"","x":110,"y":300,"wires":[]},{"id":"188a5e87.e775a1","type":"comment","z":"463d14f9.38077c","name":"Configure source","info":"","x":100,"y":360,"wires":[]}]
+```````````````````````````````````````````````````
+
+(1) Device payload
+```````````````````````````````````````````````````
+// Thermostat's location:
+var longitude1 = -98.49;
+var latitude1 = 29.42;
+
+// Array of pseudo random temperatures
+var temp1 = [15,17,18.5,50,21.5,23,24,22.2,80,95];
+
+// Array of pseudo random relative humidities
+var humidity1 = [50,55,61,68,65,60,53,49,45,47];
+
+// Counter to select from array.
+var counter1 = context.get('counter1')||0;
+counter1 = counter1+1;
+if(counter1 > 9) counter1 = 0;
+context.set('counter1',counter1);
+
+// Create MQTT message in JSON
+msg = {
+  payload: JSON.stringify(
+    {
+      d:{
+        "temp" : temp1[counter1],
+        "humidity" : humidity1[counter1],
+        "location" :
+        {
+          "longitude" : longitude1,
+          "latitude" : latitude1
+        },
+      }
+    }
+  )
+};
+return msg;
+```````````````````````````````````````````````````
+
+(2) temp
+```````````````````````````````````````````````````
+return {payload:msg.payload.d.temp};
+```````````````````````````````````````````````````
+
+(3) safe
+```````````````````````````````````````````````````
+Temperature ({{payload}}) within safe limits
+```````````````````````````````````````````````````
+
+(4) danger
+```````````````````````````````````````````````````
+Temperature ({{payload}}) critical
+```````````````````````````````````````````````````
+
+(4) Results
+![DEFAULTnode_IBM_DEFAULT_output1.png](https://github.com/leehaesung/NodeRED/blob/master/02_CodeFiles/02_Function/DEFAULTnode_IBM_DEFAULT_output1.png)
+
+![DEFAULTnode_IBM_DEFAULT_output2.png](https://github.com/leehaesung/NodeRED/blob/master/02_CodeFiles/02_Function/DEFAULTnode_IBM_DEFAULT_output2.png)
+
+![DEFAULTnode_IBM_DEFAULT_output3.png](https://github.com/leehaesung/NodeRED/blob/master/02_CodeFiles/02_Function/DEFAULTnode_IBM_DEFAULT_output3.png)
+
+
+
 
 
