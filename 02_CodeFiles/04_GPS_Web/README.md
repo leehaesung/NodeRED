@@ -254,7 +254,7 @@ return msg;
 
 * Displaying the GPS data on Google map from Python GPS Simulator
 
-![GPSWeb_LatLon02.png](https://github.com/leehaesung/NodeRED/blob/master/02_CodeFiles/04_GPS_Web/GPSWeb_LatLon02.png]
+![GPSWeb_LatLon02.png](https://github.com/leehaesung/NodeRED/blob/master/02_CodeFiles/04_GPS_Web/GPSWeb_LatLon02.png)
 ![GPSWeb_LatLon_output.png](https://github.com/leehaesung/NodeRED/blob/master/02_CodeFiles/04_GPS_Web/GPSWeb_LatLon02_output.png)
 
 ```````````````````````````````````````````````````
