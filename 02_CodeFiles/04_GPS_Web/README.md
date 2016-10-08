@@ -167,8 +167,90 @@ msg.headers={"Content-Type":"text/html"}
 return msg;
 ```````````````````````````````````````````````````
 
+***
+
+* Gathring both latitude and longitude from Python GPS Simulator
+
+![GPSWeb_LatLon.png](https://github.com/leehaesung/NodeRED/blob/master/02_CodeFiles/04_GPS_Web/GPSWeb_LatLon.png)
+![GPSWeb_LatLon_output.png](https://github.com/leehaesung/NodeRED/blob/master/02_CodeFiles/04_GPS_Web/GPSWeb_LatLon_output.png)
+```````````````````````````````````````````````````
+[{"id":"a69edd9d.8b2db","type":"http in","z":"e480804b.a7084","name":"/GatheringLatLon","url":"/GatheringLatLon","method":"get","swaggerDoc":"","x":122.85714721679688,"y":907.4285888671875,"wires":[["2be24879.90afa8"]]},{"id":"171a49db.76df86","type":"function","z":"e480804b.a7084","name":"setHTTPheader","func":"// If sending JSON data the content type is:\n//msg.headers={\"Content-Type\":\"application/json\"};\n\n// For HTML use the content type line below:\nmsg.headers={\"Content-Type\":\"text/html\"}\nreturn msg;","outputs":1,"noerr":0,"x":767.1429061889648,"y":1083.1428413391113,"wires":[["4f345ca3.0c3894"]]},{"id":"625997fd.17f398","type":"debug","z":"e480804b.a7084","name":"","active":true,"console":"false","complete":"false","x":762.8571739196777,"y":1029.5714473724365,"wires":[]},{"id":"db3608e3.3b46a8","type":"debug","z":"e480804b.a7084","name":"","active":false,"console":"false","complete":"false","x":572.8571472167969,"y":707.4285888671875,"wires":[]},{"id":"bea07872.cd0048","type":"template","z":"e480804b.a7084","name":"simple html page","field":"payload","fieldType":"msg","format":"handlebars","syntax":"mustache","template":"<h1> What's the data from a GPS Sensor? </h1>\n\n<h3>latitude:  {{payload.d.latitude}}   </h3>\n<h3>longitude: {{payload.d.longitude}}  </h3>\n","x":550.0000076293945,"y":1030.2856884002686,"wires":[["171a49db.76df86","625997fd.17f398"]]},{"id":"2be24879.90afa8","type":"function","z":"e480804b.a7084","name":"Retrieving Gps Data","func":"var latitude = {payload: JSON.stringify(context.global.d.latitude)};\nvar longitude = {payload: JSON.stringify(context.global.d.longitude)};\n\nmsg.payload = {\"d\":{\"latitude\": latitude.payload,\"longitude\": longitude.payload}};\n\nreturn msg;\n\n//msg.payload = JSON.stringify(context.global.d);\n//msg.payload = JSON.stringify(context.global.d.latitude);\n//msg.payload = JSON.stringify(context.global.d.longitude);\n\n//msg.payload = latitude.payload;\n//msg.payload = longitude.payload;\n//var latitude = {payload: msg.payload.d.latitude};\n//var longitude = {payload: msg.payload.d.longitude};\n\n//return msg;\n//return msg,latitude,longitude;\n//return [[msg],latitude,longitude];\n//return [[msg,latitude,longitude]];\n//return [msg,[latitude,longitude]];\n","outputs":1,"noerr":0,"x":320.5714111328125,"y":965.9999923706055,"wires":[["bea07872.cd0048","4d99ddca.bf4cc4"]]},{"id":"4d99ddca.bf4cc4","type":"debug","z":"e480804b.a7084","name":"","active":true,"console":"false","complete":"false","x":532.4285888671875,"y":966.0000438690186,"wires":[]},{"id":"4f345ca3.0c3894","type":"http response","z":"e480804b.a7084","name":"","x":947.1429176330566,"y":1083.1430130004883,"wires":[]},{"id":"c5194175.fbe73","type":"function","z":"e480804b.a7084","name":"Gathering GPS Data","func":"var d = msg.payload.d;\ncontext.global.d = d;\nreturn msg;\n","outputs":1,"noerr":0,"x":362.8571472167969,"y":707.4285888671875,"wires":[["db3608e3.3b46a8"]]},{"id":"15d1df33.fb72b1","type":"ibmiot in","z":"e480804b.a7084","authentication":"boundService","apiKey":"","inputType":"evt","deviceId":"iotgateway001","applicationId":"","deviceType":"+","eventType":"+","commandType":"","format":"json","name":"iotgateway001","service":"registered","allDevices":"","allApplications":"","allDeviceTypes":true,"allEvents":true,"allCommands":"","allFormats":"","qos":0,"x":132.85714721679688,"y":707.4285888671875,"wires":[["c5194175.fbe73","f243a68f.91e798"]]},{"id":"f243a68f.91e798","type":"debug","z":"e480804b.a7084","name":"","active":false,"console":"false","complete":"false","x":320,"y":754.5714157819748,"wires":[]},{"id":"9696187d.2a0df8","type":"comment","z":"e480804b.a7084","name":"From GPS Sensor to IBM Cloud","info":"","x":177.85714721679688,"y":661.4285888671875,"wires":[]},{"id":"b68c29b.d457dd8","type":"comment","z":"e480804b.a7084","name":"Web","info":"","x":92.85714721679688,"y":867.4285888671875,"wires":[]}]
+```````````````````````````````````````````````````
+
+(1) Python GPS Simulator
+```````````````````````````````````````````````````
+import time
+import numpy as np
+import ibmiotf.gateway
+from sense_hat import SenseHat
+import math
+
+try:
+    gatewayOptions = {"org": "123456", "type": "iotgateway001", "id": "iotgateway001", "auth-method": "token", "auth-token": "12345678"}
+    gatewayCli = ibmiotf.gateway.Client(gatewayOptions)
+    gatewayCli.connect()
+
+    while True:
+        myData = {'d':{'latitude':-33.875599,'longitude':151.215999}}  # Latitude & Longitude
+        gatewayCli.publishDeviceEvent("iotgateway001", "iotgateway001", "iotgateway001", "json", myData, qos=1 )
+        time.sleep(5)
 
 
+except ibmiotf.ConnectionException  as e:
+    print(e)
+```````````````````````````````````````````````````
+
+(2) Gathering GPS Data
+```````````````````````````````````````````````````
+var d = msg.payload.d;
+context.global.d = d;
+return msg;
+```````````````````````````````````````````````````
+
+(3) Retrieving Gps Data
+```````````````````````````````````````````````````
+var latitude = {payload: JSON.stringify(context.global.d.latitude)};
+var longitude = {payload: JSON.stringify(context.global.d.longitude)};
+
+msg.payload = {"d":{"latitude": latitude.payload,"longitude": longitude.payload}};
+
+return msg;
+
+//msg.payload = JSON.stringify(context.global.d);
+//msg.payload = JSON.stringify(context.global.d.latitude);
+//msg.payload = JSON.stringify(context.global.d.longitude);
+
+//msg.payload = latitude.payload;
+//msg.payload = longitude.payload;
+//var latitude = {payload: msg.payload.d.latitude};
+//var longitude = {payload: msg.payload.d.longitude};
+
+//return msg;
+//return msg,latitude,longitude;
+//return [[msg],latitude,longitude];
+//return [[msg,latitude,longitude]];
+//return [msg,[latitude,longitude]];
+```````````````````````````````````````````````````
+
+(4) simple html page
+```````````````````````````````````````````````````
+<h1> What's the data from a GPS Sensor? </h1>
+
+<h3>latitude:  {{payload.d.latitude}}   </h3>
+<h3>longitude: {{payload.d.longitude}}  </h3>
+```````````````````````````````````````````````````
+
+(5) setHTTPheader
+```````````````````````````````````````````````````
+// If sending JSON data the content type is:
+//msg.headers={"Content-Type":"application/json"};
+
+// For HTML use the content type line below:
+msg.headers={"Content-Type":"text/html"}
+return msg;
+```````````````````````````````````````````````````
+
+***
 
 
 
