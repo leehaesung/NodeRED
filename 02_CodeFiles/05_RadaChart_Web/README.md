@@ -403,3 +403,501 @@ var legend = svg.append("g")
 ```````````````````````````````````````````````````
 [{"id":"a6269323.4372b","type":"http in","z":"5d085b60.4df384","name":"/resume","url":"/resume","method":"get","swaggerDoc":"","x":211.27975463867188,"y":359.8412570953369,"wires":[["cb8724a1.91a1a8"]]},{"id":"cb8724a1.91a1a8","type":"template","z":"5d085b60.4df384","name":"My Resume","field":"payload","fieldType":"msg","format":"handlebars","syntax":"mustache","template":"<!DOCTYPE html>\n<html>\n<head>\n<title>Haesung Lee - Curriculum Vitae</title>\n\n<meta name=\"viewport\" content=\"width=device-width\"/>\n<meta name=\"description\" content=\"The Curriculum Vitae of Joe Bloggs.\"/>\n<meta charset=\"UTF-8\"> \n\n<link type=\"text/css\" rel=\"stylesheet\" href=\"style.css\">\n<link href='http://fonts.googleapis.com/css?family=Rokkitt:400,700|Lato:400,300' rel='stylesheet' type='text/css'>\n\n<!--[if lt IE 9]>\n<script src=\"//html5shiv.googlecode.com/svn/trunk/html5.js\"></script>\n<![endif]-->\n</head>\n<style type=\"text/css\">\nhtml,body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,abbr,address,cite,code,del,dfn,em,img,ins,kbd,q,samp,small,strong,sub,sup,var,b,i,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,figcaption,figure,footer,header,hgroup,menu,nav,section,summary,time,mark,audio,video {\nborder:0;\nfont:inherit;\nfont-size:100%;\nmargin:0;\npadding:0;\nvertical-align:baseline;\n}\n\narticle,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section {\ndisplay:block;\n}\n\nhtml, body {background: #181818; font-family: 'Lato', helvetica, arial, sans-serif; font-size: 16px; color: #222;}\n\n.clear {clear: both;}\n\np {\n\tfont-size: 1em;\n\tline-height: 1.4em;\n\tmargin-bottom: 20px;\n\tcolor: #444;\n}\n\n#cv {\n\twidth: 90%;\n\tmax-width: 800px;\n\tbackground: #f3f3f3;\n\tmargin: 30px auto;\n}\n\n.mainDetails {\n\tpadding: 25px 35px;\n\tborder-bottom: 2px solid #cf8a05;\n\tbackground: #ededed;\n}\n\n#name h1 {\n\tfont-size: 2.5em;\n\tfont-weight: 700;\n\tfont-family: 'Rokkitt', Helvetica, Arial, sans-serif;\n\tmargin-bottom: -6px;\n}\n\n#name h2 {\n\tfont-size: 2em;\n\tmargin-left: 2px;\n\tfont-family: 'Rokkitt', Helvetica, Arial, sans-serif;\n}\n\n#mainArea {\n\tpadding: 0 40px;\n}\n\n#headshot {\n\twidth: 12.5%;\n\tfloat: left;\n\tmargin-right: 30px;\n}\n\n#headshot img {\n\twidth: 100%;\n\theight: auto;\n\t-webkit-border-radius: 50px;\n\tborder-radius: 50px;\n}\n\n#name {\n\tfloat: left;\n}\n\n#contactDetails {\n\tfloat: right;\n}\n\n#contactDetails ul {\n\tlist-style-type: none;\n\tfont-size: 0.9em;\n\tmargin-top: 2px;\n}\n\n#contactDetails ul li {\n\tmargin-bottom: 3px;\n\tcolor: #444;\n}\n\n#contactDetails ul li a, a[href^=tel] {\n\tcolor: #444; \n\ttext-decoration: none;\n\t-webkit-transition: all .3s ease-in;\n\t-moz-transition: all .3s ease-in;\n\t-o-transition: all .3s ease-in;\n\t-ms-transition: all .3s ease-in;\n\ttransition: all .3s ease-in;\n}\n\n#contactDetails ul li a:hover { \n\tcolor: #cf8a05;\n}\n\n\nsection {\n\tborder-top: 1px solid #dedede;\n\tpadding: 20px 0 0;\n}\n\nsection:first-child {\n\tborder-top: 0;\n}\n\nsection:last-child {\n\tpadding: 20px 0 10px;\n}\n\n.sectionTitle {\n\tfloat: left;\n\twidth: 25%;\n}\n\n.sectionContent {\n\tfloat: right;\n\twidth: 72.5%;\n}\n\n.sectionTitle h1 {\n\tfont-family: 'Rokkitt', Helvetica, Arial, sans-serif;\n\tfont-style: italic;\n\tfont-size: 1.5em;\n\tcolor: #cf8a05;\n}\n\n.sectionContent h2 {\n\tfont-family: 'Rokkitt', Helvetica, Arial, sans-serif;\n\tfont-size: 1.5em;\n\tmargin-bottom: -2px;\n}\n\n.subDetails {\n\tfont-size: 0.8em;\n\tfont-style: italic;\n\tmargin-bottom: 3px;\n}\n\n.keySkills {\n\tlist-style-type: none;\n\t-moz-column-count:3;\n\t-webkit-column-count:3;\n\tcolumn-count:3;\n\tmargin-bottom: 20px;\n\tfont-size: 1em;\n\tcolor: #444;\n}\n\n.keySkills ul li {\n\tmargin-bottom: 3px;\n}\n\n@media all and (min-width: 602px) and (max-width: 800px) {\n\t#headshot {\n\t\tdisplay: none;\n\t}\n\t\n\t.keySkills {\n\t-moz-column-count:2;\n\t-webkit-column-count:2;\n\tcolumn-count:2;\n\t}\n}\n\n@media all and (max-width: 601px) {\n\t#cv {\n\t\twidth: 95%;\n\t\tmargin: 10px auto;\n\t\tmin-width: 280px;\n\t}\n\t\n\t#headshot {\n\t\tdisplay: none;\n\t}\n\t\n\t#name, #contactDetails {\n\t\tfloat: none;\n\t\twidth: 100%;\n\t\ttext-align: center;\n\t}\n\t\n\t.sectionTitle, .sectionContent {\n\t\tfloat: none;\n\t\twidth: 100%;\n\t}\n\t\n\t.sectionTitle {\n\t\tmargin-left: -2px;\n\t\tfont-size: 1.25em;\n\t}\n\t\n\t.keySkills {\n\t\t-moz-column-count:2;\n\t\t-webkit-column-count:2;\n\t\tcolumn-count:2;\n\t}\n}\n\n@media all and (max-width: 480px) {\n\t.mainDetails {\n\t\tpadding: 15px 15px;\n\t}\n\t\n\tsection {\n\t\tpadding: 15px 0 0;\n\t}\n\t\n\t#mainArea {\n\t\tpadding: 0 25px;\n\t}\n\n\t\n\t.keySkills {\n\t-moz-column-count:1;\n\t-webkit-column-count:1;\n\tcolumn-count:1;\n\t}\n\t\n\t#name h1 {\n\t\tline-height: .8em;\n\t\tmargin-bottom: 4px;\n\t}\n}\n\n@media print {\n    #cv {\n        width: 100%;\n    }\n}\n\n@-webkit-keyframes reset {\n\t0% {\n\t\topacity: 0;\n\t}\n\t100% {\n\t\topacity: 0;\n\t}\n}\n\n@-webkit-keyframes fade-in {\n\t0% {\n\t\topacity: 0;\n\t}\n\t40% {\n\t\topacity: 0;\n\t}\n\t100% {\n\t\topacity: 1;\n\t}\n}\n\n@-moz-keyframes reset {\n\t0% {\n\t\topacity: 0;\n\t}\n\t100% {\n\t\topacity: 0;\n\t}\n}\n\n@-moz-keyframes fade-in {\n\t0% {\n\t\topacity: 0;\n\t}\n\t40% {\n\t\topacity: 0;\n\t}\n\t100% {\n\t\topacity: 1;\n\t}\n}\n\n@keyframes reset {\n\t0% {\n\t\topacity: 0;\n\t}\n\t100% {\n\t\topacity: 0;\n\t}\n}\n\n@keyframes fade-in {\n\t0% {\n\t\topacity: 0;\n\t}\n\t40% {\n\t\topacity: 0;\n\t}\n\t100% {\n\t\topacity: 1;\n\t}\n}\n\n.instaFade {\n    -webkit-animation-name: reset, fade-in;\n    -webkit-animation-duration: 1.5s;\n    -webkit-animation-timing-function: ease-in;\n\t\n\t-moz-animation-name: reset, fade-in;\n    -moz-animation-duration: 1.5s;\n    -moz-animation-timing-function: ease-in;\n\t\n\tanimation-name: reset, fade-in;\n    animation-duration: 1.5s;\n    animation-timing-function: ease-in;\n}\n\n.quickFade {\n    -webkit-animation-name: reset, fade-in;\n    -webkit-animation-duration: 2.5s;\n    -webkit-animation-timing-function: ease-in;\n\t\n\t-moz-animation-name: reset, fade-in;\n    -moz-animation-duration: 2.5s;\n    -moz-animation-timing-function: ease-in;\n\t\n\tanimation-name: reset, fade-in;\n    animation-duration: 2.5s;\n    animation-timing-function: ease-in;\n}\n \n.delayOne {\n\t-webkit-animation-delay: 0, .5s;\n\t-moz-animation-delay: 0, .5s;\n\tanimation-delay: 0, .5s;\n}\n\n.delayTwo {\n\t-webkit-animation-delay: 0, 1s;\n\t-moz-animation-delay: 0, 1s;\n\tanimation-delay: 0, 1s;\n}\n\n.delayThree {\n\t-webkit-animation-delay: 0, 1.5s;\n\t-moz-animation-delay: 0, 1.5s;\n\tanimation-delay: 0, 1.5s;\n}\n\n.delayFour {\n\t-webkit-animation-delay: 0, 2s;\n\t-moz-animation-delay: 0, 2s;\n\tanimation-delay: 0, 2s;\n}\n\n.delayFive {\n\t-webkit-animation-delay: 0, 2.5s;\n\t-moz-animation-delay: 0, 2.5s;\n\tanimation-delay: 0, 2.5s;\n}    \n</style>\n\n<body id=\"top\">\n<div id=\"cv\" class=\"instaFade\">\n\t<div class=\"mainDetails\">\n\t\t<div id=\"headshot\" class=\"quickFade\">\n\t\t\t<img src=\"headshot.jpg\" alt=\"Alan Smith\" />\n\t\t</div>\n\t\t\n\t\t<div id=\"name\">\n\t\t\t<h1 class=\"quickFade delayTwo\">Haesung Lee Bloggs</h1>\n\t\t\t<h2 class=\"quickFade delayThree\">Haesung Lee Title</h2>\n\t\t</div>\n\t\t\n\t\t<div id=\"contactDetails\" class=\"quickFade delayFour\">\n\t\t\t<ul>\n\t\t\t\t<li>e: <a href=\"mailto:achasma@gmail.com\" target=\"_blank\">joe@bloggs.com</a></li>\n\t\t\t\t<li>w: <a href=\"http://www.bloggs.com\">www.bloggs.com</a></li>\n\t\t\t\t<li>m: 01234567890</li>\n\t\t\t</ul>\n\t\t</div>\n\t\t<div class=\"clear\"></div>\n\t</div>\n\t\n\t<div id=\"mainArea\" class=\"quickFade delayFive\">\n\t\t<section>\n\t\t\t<article>\n\t\t\t\t<div class=\"sectionTitle\">\n\t\t\t\t\t<h1>Personal Profile</h1>\n\t\t\t\t</div>\n\t\t\t\t\n\t\t\t\t<div class=\"sectionContent\">\n\t\t\t\t\t<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer dolor metus, interdum at scelerisque in, porta at lacus. Maecenas dapibus luctus cursus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ultricies massa et erat luctus hendrerit. Curabitur non consequat enim. Vestibulum bibendum mattis dignissim. Proin id sapien quis libero interdum porttitor.</p>\n\t\t\t\t</div>\n\t\t\t</article>\n\t\t\t<div class=\"clear\"></div>\n\t\t</section>\n\t\t\n\t\t\n\t\t<section>\n\t\t\t<div class=\"sectionTitle\">\n\t\t\t\t<h1>Work Experience</h1>\n\t\t\t</div>\n\t\t\t\n\t\t\t<div class=\"sectionContent\">\n\t\t\t\t<article>\n\t\t\t\t\t<h2>Job Title at Company</h2>\n\t\t\t\t\t<p class=\"subDetails\">April 2011 - Present</p>\n\t\t\t\t\t<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ultricies massa et erat luctus hendrerit. Curabitur non consequat enim. Vestibulum bibendum mattis dignissim. Proin id sapien quis libero interdum porttitor.</p>\n\t\t\t\t</article>\n\t\t\t\t\n\t\t\t\t<article>\n\t\t\t\t\t<h2>Job Title at Company</h2>\n\t\t\t\t\t<p class=\"subDetails\">Janruary 2007 - March 2011</p>\n\t\t\t\t\t<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ultricies massa et erat luctus hendrerit. Curabitur non consequat enim. Vestibulum bibendum mattis dignissim. Proin id sapien quis libero interdum porttitor.</p>\n\t\t\t\t</article>\n\t\t\t\t\n\t\t\t\t<article>\n\t\t\t\t\t<h2>Job Title at Company</h2>\n\t\t\t\t\t<p class=\"subDetails\">October 2004 - December 2006</p>\n\t\t\t\t\t<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ultricies massa et erat luctus hendrerit. Curabitur non consequat enim. Vestibulum bibendum mattis dignissim. Proin id sapien quis libero interdum porttitor.</p>\n\t\t\t\t</article>\n\t\t\t</div>\n\t\t\t<div class=\"clear\"></div>\n\t\t</section>\n\t\t\n\t\t\n\t\t<section>\n\t\t\t<div class=\"sectionTitle\">\n\t\t\t\t<h1>Key Skills</h1>\n\t\t\t</div>\n\t\t\t\n\t\t\t<div class=\"sectionContent\">\n\t\t\t\t<ul class=\"keySkills\">\n\t\t\t\t\t<li>A Key Skill</li>\n\t\t\t\t\t<li>A Key Skill</li>\n\t\t\t\t\t<li>A Key Skill</li>\n\t\t\t\t\t<li>A Key Skill</li>\n\t\t\t\t\t<li>A Key Skill</li>\n\t\t\t\t\t<li>A Key Skill</li>\n\t\t\t\t\t<li>A Key Skill</li>\n\t\t\t\t\t<li>A Key Skill</li>\n\t\t\t\t</ul>\n\t\t\t</div>\n\t\t\t<div class=\"clear\"></div>\n\t\t</section>\n\t\t\n\t\t\n\t\t<section>\n\t\t\t<div class=\"sectionTitle\">\n\t\t\t\t<h1>Education</h1>\n\t\t\t</div>\n\t\t\t\n\t\t\t<div class=\"sectionContent\">\n\t\t\t\t<article>\n\t\t\t\t\t<h2>College/University</h2>\n\t\t\t\t\t<p class=\"subDetails\">Qualification</p>\n\t\t\t\t\t<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ultricies massa et erat luctus hendrerit. Curabitur non consequat enim.</p>\n\t\t\t\t</article>\n\t\t\t\t\n\t\t\t\t<article>\n\t\t\t\t\t<h2>College/University</h2>\n\t\t\t\t\t<p class=\"subDetails\">Qualification</p>\n\t\t\t\t\t<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ultricies massa et erat luctus hendrerit. Curabitur non consequat enim.</p>\n\t\t\t\t</article>\n\t\t\t</div>\n\t\t\t<div class=\"clear\"></div>\n\t\t</section>\n\t\t\n\t</div>\n</div>\n<script type=\"text/javascript\">\nvar gaJsHost = ((\"https:\" == document.location.protocol) ? \"https://ssl.\" : \"http://www.\");\ndocument.write(unescape(\"%3Cscript src='\" + gaJsHost + \"google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E\"));\n</script>\n<script type=\"text/javascript\">\nvar pageTracker = _gat._getTracker(\"UA-3753241-1\");\npageTracker._initData();\npageTracker._trackPageview();\n</script>\n</body>\n</html>","x":421.2797546386719,"y":359.8412570953369,"wires":[["37683c2d.e44784"]]},{"id":"37683c2d.e44784","type":"http response","z":"5d085b60.4df384","name":"/resume","x":631.2797546386719,"y":359.84125232696533,"wires":[]}]
 ```````````````````````````````````````````````````
+
+* Function
+```````````````````````````````````````````````````
+<!DOCTYPE html>
+<html>
+<head>
+<title>Haesung Lee - Curriculum Vitae</title>
+
+<meta name="viewport" content="width=device-width"/>
+<meta name="description" content="The Curriculum Vitae of Joe Bloggs."/>
+<meta charset="UTF-8"> 
+
+<link type="text/css" rel="stylesheet" href="style.css">
+<link href='http://fonts.googleapis.com/css?family=Rokkitt:400,700|Lato:400,300' rel='stylesheet' type='text/css'>
+
+<!--[if lt IE 9]>
+<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+</head>
+<style type="text/css">
+html,body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,abbr,address,cite,code,del,dfn,em,img,ins,kbd,q,samp,small,strong,sub,sup,var,b,i,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,figcaption,figure,footer,header,hgroup,menu,nav,section,summary,time,mark,audio,video {
+border:0;
+font:inherit;
+font-size:100%;
+margin:0;
+padding:0;
+vertical-align:baseline;
+}
+
+article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section {
+display:block;
+}
+
+html, body {background: #181818; font-family: 'Lato', helvetica, arial, sans-serif; font-size: 16px; color: #222;}
+
+.clear {clear: both;}
+
+p {
+	font-size: 1em;
+	line-height: 1.4em;
+	margin-bottom: 20px;
+	color: #444;
+}
+
+#cv {
+	width: 90%;
+	max-width: 800px;
+	background: #f3f3f3;
+	margin: 30px auto;
+}
+
+.mainDetails {
+	padding: 25px 35px;
+	border-bottom: 2px solid #cf8a05;
+	background: #ededed;
+}
+
+#name h1 {
+	font-size: 2.5em;
+	font-weight: 700;
+	font-family: 'Rokkitt', Helvetica, Arial, sans-serif;
+	margin-bottom: -6px;
+}
+
+#name h2 {
+	font-size: 2em;
+	margin-left: 2px;
+	font-family: 'Rokkitt', Helvetica, Arial, sans-serif;
+}
+
+#mainArea {
+	padding: 0 40px;
+}
+
+#headshot {
+	width: 12.5%;
+	float: left;
+	margin-right: 30px;
+}
+
+#headshot img {
+	width: 100%;
+	height: auto;
+	-webkit-border-radius: 50px;
+	border-radius: 50px;
+}
+
+#name {
+	float: left;
+}
+
+#contactDetails {
+	float: right;
+}
+
+#contactDetails ul {
+	list-style-type: none;
+	font-size: 0.9em;
+	margin-top: 2px;
+}
+
+#contactDetails ul li {
+	margin-bottom: 3px;
+	color: #444;
+}
+
+#contactDetails ul li a, a[href^=tel] {
+	color: #444; 
+	text-decoration: none;
+	-webkit-transition: all .3s ease-in;
+	-moz-transition: all .3s ease-in;
+	-o-transition: all .3s ease-in;
+	-ms-transition: all .3s ease-in;
+	transition: all .3s ease-in;
+}
+
+#contactDetails ul li a:hover { 
+	color: #cf8a05;
+}
+
+
+section {
+	border-top: 1px solid #dedede;
+	padding: 20px 0 0;
+}
+
+section:first-child {
+	border-top: 0;
+}
+
+section:last-child {
+	padding: 20px 0 10px;
+}
+
+.sectionTitle {
+	float: left;
+	width: 25%;
+}
+
+.sectionContent {
+	float: right;
+	width: 72.5%;
+}
+
+.sectionTitle h1 {
+	font-family: 'Rokkitt', Helvetica, Arial, sans-serif;
+	font-style: italic;
+	font-size: 1.5em;
+	color: #cf8a05;
+}
+
+.sectionContent h2 {
+	font-family: 'Rokkitt', Helvetica, Arial, sans-serif;
+	font-size: 1.5em;
+	margin-bottom: -2px;
+}
+
+.subDetails {
+	font-size: 0.8em;
+	font-style: italic;
+	margin-bottom: 3px;
+}
+
+.keySkills {
+	list-style-type: none;
+	-moz-column-count:3;
+	-webkit-column-count:3;
+	column-count:3;
+	margin-bottom: 20px;
+	font-size: 1em;
+	color: #444;
+}
+
+.keySkills ul li {
+	margin-bottom: 3px;
+}
+
+@media all and (min-width: 602px) and (max-width: 800px) {
+	#headshot {
+		display: none;
+	}
+	
+	.keySkills {
+	-moz-column-count:2;
+	-webkit-column-count:2;
+	column-count:2;
+	}
+}
+
+@media all and (max-width: 601px) {
+	#cv {
+		width: 95%;
+		margin: 10px auto;
+		min-width: 280px;
+	}
+	
+	#headshot {
+		display: none;
+	}
+	
+	#name, #contactDetails {
+		float: none;
+		width: 100%;
+		text-align: center;
+	}
+	
+	.sectionTitle, .sectionContent {
+		float: none;
+		width: 100%;
+	}
+	
+	.sectionTitle {
+		margin-left: -2px;
+		font-size: 1.25em;
+	}
+	
+	.keySkills {
+		-moz-column-count:2;
+		-webkit-column-count:2;
+		column-count:2;
+	}
+}
+
+@media all and (max-width: 480px) {
+	.mainDetails {
+		padding: 15px 15px;
+	}
+	
+	section {
+		padding: 15px 0 0;
+	}
+	
+	#mainArea {
+		padding: 0 25px;
+	}
+
+	
+	.keySkills {
+	-moz-column-count:1;
+	-webkit-column-count:1;
+	column-count:1;
+	}
+	
+	#name h1 {
+		line-height: .8em;
+		margin-bottom: 4px;
+	}
+}
+
+@media print {
+    #cv {
+        width: 100%;
+    }
+}
+
+@-webkit-keyframes reset {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 0;
+	}
+}
+
+@-webkit-keyframes fade-in {
+	0% {
+		opacity: 0;
+	}
+	40% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+
+@-moz-keyframes reset {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 0;
+	}
+}
+
+@-moz-keyframes fade-in {
+	0% {
+		opacity: 0;
+	}
+	40% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+
+@keyframes reset {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 0;
+	}
+}
+
+@keyframes fade-in {
+	0% {
+		opacity: 0;
+	}
+	40% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+
+.instaFade {
+    -webkit-animation-name: reset, fade-in;
+    -webkit-animation-duration: 1.5s;
+    -webkit-animation-timing-function: ease-in;
+	
+	-moz-animation-name: reset, fade-in;
+    -moz-animation-duration: 1.5s;
+    -moz-animation-timing-function: ease-in;
+	
+	animation-name: reset, fade-in;
+    animation-duration: 1.5s;
+    animation-timing-function: ease-in;
+}
+
+.quickFade {
+    -webkit-animation-name: reset, fade-in;
+    -webkit-animation-duration: 2.5s;
+    -webkit-animation-timing-function: ease-in;
+	
+	-moz-animation-name: reset, fade-in;
+    -moz-animation-duration: 2.5s;
+    -moz-animation-timing-function: ease-in;
+	
+	animation-name: reset, fade-in;
+    animation-duration: 2.5s;
+    animation-timing-function: ease-in;
+}
+ 
+.delayOne {
+	-webkit-animation-delay: 0, .5s;
+	-moz-animation-delay: 0, .5s;
+	animation-delay: 0, .5s;
+}
+
+.delayTwo {
+	-webkit-animation-delay: 0, 1s;
+	-moz-animation-delay: 0, 1s;
+	animation-delay: 0, 1s;
+}
+
+.delayThree {
+	-webkit-animation-delay: 0, 1.5s;
+	-moz-animation-delay: 0, 1.5s;
+	animation-delay: 0, 1.5s;
+}
+
+.delayFour {
+	-webkit-animation-delay: 0, 2s;
+	-moz-animation-delay: 0, 2s;
+	animation-delay: 0, 2s;
+}
+
+.delayFive {
+	-webkit-animation-delay: 0, 2.5s;
+	-moz-animation-delay: 0, 2.5s;
+	animation-delay: 0, 2.5s;
+}    
+</style>
+
+<body id="top">
+<div id="cv" class="instaFade">
+	<div class="mainDetails">
+		<div id="headshot" class="quickFade">
+			<img src="headshot.jpg" alt="Alan Smith" />
+		</div>
+		
+		<div id="name">
+			<h1 class="quickFade delayTwo">Haesung Lee Bloggs</h1>
+			<h2 class="quickFade delayThree">Haesung Lee Title</h2>
+		</div>
+		
+		<div id="contactDetails" class="quickFade delayFour">
+			<ul>
+				<li>e: <a href="mailto:achasma@gmail.com" target="_blank">joe@bloggs.com</a></li>
+				<li>w: <a href="http://www.bloggs.com">www.bloggs.com</a></li>
+				<li>m: 01234567890</li>
+			</ul>
+		</div>
+		<div class="clear"></div>
+	</div>
+	
+	<div id="mainArea" class="quickFade delayFive">
+		<section>
+			<article>
+				<div class="sectionTitle">
+					<h1>Personal Profile</h1>
+				</div>
+				
+				<div class="sectionContent">
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer dolor metus, interdum at scelerisque in, porta at lacus. Maecenas dapibus luctus cursus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ultricies massa et erat luctus hendrerit. Curabitur non consequat enim. Vestibulum bibendum mattis dignissim. Proin id sapien quis libero interdum porttitor.</p>
+				</div>
+			</article>
+			<div class="clear"></div>
+		</section>
+		
+		
+		<section>
+			<div class="sectionTitle">
+				<h1>Work Experience</h1>
+			</div>
+			
+			<div class="sectionContent">
+				<article>
+					<h2>Job Title at Company</h2>
+					<p class="subDetails">April 2011 - Present</p>
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ultricies massa et erat luctus hendrerit. Curabitur non consequat enim. Vestibulum bibendum mattis dignissim. Proin id sapien quis libero interdum porttitor.</p>
+				</article>
+				
+				<article>
+					<h2>Job Title at Company</h2>
+					<p class="subDetails">Janruary 2007 - March 2011</p>
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ultricies massa et erat luctus hendrerit. Curabitur non consequat enim. Vestibulum bibendum mattis dignissim. Proin id sapien quis libero interdum porttitor.</p>
+				</article>
+				
+				<article>
+					<h2>Job Title at Company</h2>
+					<p class="subDetails">October 2004 - December 2006</p>
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ultricies massa et erat luctus hendrerit. Curabitur non consequat enim. Vestibulum bibendum mattis dignissim. Proin id sapien quis libero interdum porttitor.</p>
+				</article>
+			</div>
+			<div class="clear"></div>
+		</section>
+		
+		
+		<section>
+			<div class="sectionTitle">
+				<h1>Key Skills</h1>
+			</div>
+			
+			<div class="sectionContent">
+				<ul class="keySkills">
+					<li>A Key Skill</li>
+					<li>A Key Skill</li>
+					<li>A Key Skill</li>
+					<li>A Key Skill</li>
+					<li>A Key Skill</li>
+					<li>A Key Skill</li>
+					<li>A Key Skill</li>
+					<li>A Key Skill</li>
+				</ul>
+			</div>
+			<div class="clear"></div>
+		</section>
+		
+		
+		<section>
+			<div class="sectionTitle">
+				<h1>Education</h1>
+			</div>
+			
+			<div class="sectionContent">
+				<article>
+					<h2>College/University</h2>
+					<p class="subDetails">Qualification</p>
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ultricies massa et erat luctus hendrerit. Curabitur non consequat enim.</p>
+				</article>
+				
+				<article>
+					<h2>College/University</h2>
+					<p class="subDetails">Qualification</p>
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ultricies massa et erat luctus hendrerit. Curabitur non consequat enim.</p>
+				</article>
+			</div>
+			<div class="clear"></div>
+		</section>
+		
+	</div>
+</div>
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-3753241-1");
+pageTracker._initData();
+pageTracker._trackPageview();
+</script>
+</body>
+</html>
+```````````````````````````````````````````````````
