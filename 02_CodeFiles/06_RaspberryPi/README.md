@@ -63,3 +63,11 @@ return msg;
 
 ![Temp_PiSenseHAT08.png](https://github.com/leehaesung/NodeRED/blob/master/02_CodeFiles/06_RaspberryPi/Temp_PiSenseHAT08.png)
 
+
+
+* Simpe picture caputre with Pi-camera 
+![simpleCapturePicwithPiCamera.png](https://github.com/leehaesung/NodeRED/blob/master/02_CodeFiles/06_RaspberryPi/simpleCapturePicwithPiCamera.png)
+
+```````````````````
+[{"id":"b33ae226.71f","type":"exec","z":"1bfa85d1.b05a1a","command":"sudo raspistill -o /home/pi/image1.jpg","addpay":false,"append":"","useSpawn":"","timer":"5","name":"Take a pic","x":292.1856918334961,"y":533.3333168029785,"wires":[["46a25d87.bbe294"],[],[]]},{"id":"41710675.179cf8","type":"rpi-gpio in","z":"1bfa85d1.b05a1a","name":"PIR Sensor","pin":"12","intype":"tri","debounce":"25","read":false,"x":110.6190414428711,"y":533.3333168029785,"wires":[["b33ae226.71f"]]},{"id":"c3a48bac.018768","type":"inject","z":"1bfa85d1.b05a1a","name":"Test","topic":"","payload":"","payloadType":"date","repeat":"","crontab":"","once":false,"x":118.47618103027344,"y":486.0476179122925,"wires":[["b33ae226.71f"]]},{"id":"46a25d87.bbe294","type":"template","z":"1bfa85d1.b05a1a","name":"Status capture","field":"payload","fieldType":"msg","format":"handlebars","syntax":"mustache","template":"Photo clicked sucessfully!","x":412.6190414428711,"y":609.3333168029785,"wires":[["9d0f42be.67f2f"]]},{"id":"9d0f42be.67f2f","type":"debug","z":"1bfa85d1.b05a1a","name":"","active":true,"console":"false","complete":"false","x":614.6190414428711,"y":610.3333168029785,"wires":[]},{"id":"c920ecaa.2b8b4","type":"comment","z":"1bfa85d1.b05a1a","name":"Simple Pi camera","info":"","x":151.28571428571428,"y":427.1428571428571,"wires":[]}]
+```````````````````
