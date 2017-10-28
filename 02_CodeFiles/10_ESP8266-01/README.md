@@ -29,7 +29,7 @@
   - Add the following 3rd party board manager under "File -> Preferences -> Additional Boards Manager URLs":
        http://arduino.esp8266.com/stable/package_esp8266com_index.json
   - Open the "Tools -> Board -> Board Manager" and click install for the ESP8266"
-  - Select your ESP8266 in "Tools -> Board"
+  - Select your ESP8266 in "Tools -> Board -> Generic ESP8266 Module"
 
 
 (2) Put the below the libries 
