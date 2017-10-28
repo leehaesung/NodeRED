@@ -13,6 +13,7 @@
 ## Setup Callback
 
 SUBSCRIBE XKIT ON SIGFOX BACKEND
+
 STEP 1: Go to https://backend.sigfox.com/activate
 
 STEP 2: Choose Thinxtra logo
