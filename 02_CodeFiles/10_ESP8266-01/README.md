@@ -34,7 +34,9 @@
 
 (2) Put the below the libries 
   - Down load the libries. 
+  
         https://github.com/adafruit/Adafruit_Sensor   
+        
         https://github.com/knolleary/pubsubclient/tree/master/src  
   
   - Put the libries at /home/ubuntu/Arduino/libraries
