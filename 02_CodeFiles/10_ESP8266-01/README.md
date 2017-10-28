@@ -283,3 +283,15 @@ void loop() {
 
 
 ***
+
+## References
+
+* Where To Buy:  http://www.buildcircuit.com.au/blog/three-important-lessons-for-beginners-using-esp8266-wifi-module/
+
+* [EXPERIMENT WITH DHT11 AND ARDUINO](http://www.buildcircuit.com/experiment-with-dht11-and-arduino/)
+
+* [PID-Control-for-BBQ-Bot](https://www.instructables.com/id/PID-Control-for-BBQ-Bot/)
+
+
+
+***
