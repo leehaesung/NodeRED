@@ -4,6 +4,12 @@
 ![SigFox_For_Arduino.jpg](https://github.com/leehaesung/NodeRED/blob/master/02_CodeFiles/11_SigFox/01_Images/SigFox_For_Arduino.jpg)
 
 ***
+
+* Setup Hardware Arduino
+![Xkit-Power-Configurations-v7.jpg](https://github.com/leehaesung/NodeRED/blob/master/02_CodeFiles/11_SigFox/01_Images/Xkit-Power-Configurations-v7.jpg)
+
+***
+
 # Setup Callback
 
 ![SettingCallbackSigFoxWithArduino.png](https://github.com/leehaesung/NodeRED/blob/master/02_CodeFiles/11_SigFox/01_Images/SettingCallbackSigFoxWithArduino.png)
