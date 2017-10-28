@@ -13,6 +13,6 @@
 
 * Materials https://www.thinxtra.com/xkit/
 * Where To Buy: https://www.iot-store.com.au/products/thinxtra-xkit4-first-complete-sigfox-ready-development-kit
-
+* Coverage in the world: https://www.sigfox.com/en/coverage
 
 ***
