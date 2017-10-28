@@ -22,6 +22,27 @@
 
 ## Software For Arduino
 
+
+#### How To Setup
+
+(1) Configurate the ESP8266 board, (using Arduino IDE):
+  - Add the following 3rd party board manager under "File -> Preferences -> Additional Boards Manager URLs":
+       http://arduino.esp8266.com/stable/package_esp8266com_index.json
+  - Open the "Tools -> Board -> Board Manager" and click install for the ESP8266"
+  - Select your ESP8266 in "Tools -> Board"
+
+
+(2) Put the below the libries 
+  - Down load the libries. 
+        https://github.com/adafruit/Adafruit_Sensor   
+        https://github.com/knolleary/pubsubclient/tree/master/src  
+  
+  - Put the libries at /home/ubuntu/Arduino/libraries
+  
+  - Please restart the Arduino IDE.
+
+
+
 * Source Codes
 [DHT11sensorWithMQTT_Ver0.1.ino](https://github.com/leehaesung/NodeRED/blob/master/02_CodeFiles/10_ESP8266-01/02_Codes/DHT11sensorWithMQTT_Ver0.1.ino)
 
