@@ -33,7 +33,7 @@
 
 
 (2) Put the below the libries 
-  - Down load the libries. 
+  - Down load the libries. (Use wget or git clone.)
   
         https://github.com/adafruit/Adafruit_Sensor   
         
