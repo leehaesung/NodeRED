@@ -32,6 +32,22 @@ STEP 5: Fill in account details.
 
 STEP 6: Click Subscribe button.
 
+Copy below that and paste there.
+``````````````````````
+{ 
+"device":"{device}", 
+"time":{time}, 
+"duplicate":{duplicate}, 
+"snr":{snr}, 
+"station":"{station}", 
+"data":"{data}", 
+"avgSnr":{avgSnr}, 
+"latlng":[{lat},{lng}], 
+"rssi":{rssi}, 
+"seqNumber":{seqNumber}, 
+"name":"leo" 
+}
+``````````````````````
 
 ![SettingCallbackSigFoxWithArduino.png](https://github.com/leehaesung/NodeRED/blob/master/02_CodeFiles/11_SigFox/01_Images/SettingCallbackSigFoxWithArduino.png)
 ***
