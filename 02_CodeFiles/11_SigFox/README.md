@@ -82,6 +82,13 @@ Copy below that and paste there.
 ![SigFoxWithSQLiteMQTT.png](https://github.com/leehaesung/NodeRED/blob/master/02_CodeFiles/11_SigFox/01_Images/SigFoxWithSQLiteMQTT.png)
 
 ***
+## Python Jupyter-notebook In Real Time
+
+[Source Code: Python Jupyter-notebook](http://nbviewer.jupyter.org/github/leehaesung/NodeRED/blob/master/02_CodeFiles/11_SigFox/02_SourceCodes/SQLite3_with_Monitoring_IoT_Arduino_Temp_Sensor_MQTT.ipynb)
+
+
+
+***
 
 ## References
 
