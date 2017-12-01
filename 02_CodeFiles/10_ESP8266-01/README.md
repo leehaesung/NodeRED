@@ -284,7 +284,9 @@ void loop() {
 ***
 ## SQLite3 with ESP8266-01 & DHT11 Sensor
 
-* [Source Code: Node-RED](https://github.com/leehaesung/NodeRED/blob/master/02_CodeFiles/10_ESP8266-01/02_Codes/SQLiteWithESP8266-01DHT_Node-RED.txt)
+* [(1) Source Code: Node-RED](https://github.com/leehaesung/NodeRED/blob/master/02_CodeFiles/10_ESP8266-01/02_Codes/SQLiteWithESP8266-01DHT_Node-RED.txt)
+
+* [(2) Source Code: Python](http://nbviewer.jupyter.org/github/leehaesung/NodeRED/blob/master/02_CodeFiles/10_ESP8266-01/02_Codes/SQLite3_with_Monitoring_IoT_ESP8266-01_Temp_Hum_Sensor_MQTT.ipynb)
 
 
 * Node-RED Image
