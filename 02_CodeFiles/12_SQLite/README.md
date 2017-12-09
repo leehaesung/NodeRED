@@ -3,12 +3,12 @@
 ***
 ### How To Install
 
-* How to install SQLite3 for Ubuntu:
+* How to install SQLite3 for Raspberry Pi:
     ```
     sudo apt-get install sqlite3 libsqlite3-dev
     ```
 
-* How to Install sqlitebrowser for Ubunt:
+* How to Install sqlitebrowser for Raspberry Pi:
     ```
     sudo apt-get install sqlitebrowser  
     ```
