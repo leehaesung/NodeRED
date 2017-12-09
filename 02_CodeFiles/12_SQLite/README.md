@@ -34,9 +34,9 @@
 
 
 ***
-## Pi System with SQLite
+## Pi Sense HAT with SQLite
 
-* Pi Sense HAT
+* Pi Sense HAT (Temperature, Humidity, Pressure, ACCEL/MAG/GYRO, LEDS)
 
 ![PiSenseHAT.jpeg](https://github.com/leehaesung/NodeRED/blob/master/02_CodeFiles/12_SQLite/01_Images/PiSenseHAT.jpeg)
 
