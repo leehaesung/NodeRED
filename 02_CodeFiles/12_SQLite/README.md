@@ -52,3 +52,7 @@
 
 * Source Code
 
+[PiSenseHATwithSQLite_NodeRED.txt](https://github.com/leehaesung/NodeRED/blob/master/02_CodeFiles/12_SQLite/02_SourceCodes/PiSenseHATwithSQLite_NodeRED.txt)
+
+![PiSenseHATwithSQLite_NodeRED.png](https://github.com/leehaesung/NodeRED/blob/master/02_CodeFiles/12_SQLite/01_Images/PiSenseHATwithSQLite_NodeRED.png)
+
