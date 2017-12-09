@@ -17,7 +17,7 @@
 ***
 ## Pi CPU Temperature with SQLite
 
-* SQLite DB Browser
+* SQLite DB Browser with Raspberry Pi
 
 ![PiSystem_SQLiteDBBrowser.png](https://github.com/leehaesung/NodeRED/blob/master/02_CodeFiles/12_SQLite/01_Images/PiSystem_SQLiteDBBrowser.png)
 
@@ -40,13 +40,15 @@
 
 ![PiSenseHAT.jpeg](https://github.com/leehaesung/NodeRED/blob/master/02_CodeFiles/12_SQLite/01_Images/PiSenseHAT.jpeg)
 
-***
+
+* SQLite DB Browser with Pi-Sense HAT 
+
+![PiSenseHAT_SQLiteDB_Browser.png](https://github.com/leehaesung/NodeRED/blob/master/02_CodeFiles/12_SQLite/01_Images/PiSenseHAT_SQLiteDB_Browser.png)
+
+
 * Node-RED
 
 ![PiSenseHATwithSQLite.png](https://github.com/leehaesung/NodeRED/blob/master/02_CodeFiles/12_SQLite/01_Images/PiSenseHATwithSQLite.png)
 
-***
 * Source Code
-
-
 
