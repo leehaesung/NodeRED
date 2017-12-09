@@ -1,6 +1,20 @@
 # SQLite
 
 ***
+### How To Install
+
+* How to install SQLite3 for Ubuntu:
+    ```
+    sudo apt-get install sqlite3 libsqlite3-dev
+    ```
+
+* How to Install sqlitebrowser for Ubunt:
+    ```
+    sudo apt-get install sqlitebrowser  
+    ```
+
+
+***
 ### Pi System with SQLite
 
 * Node-RED
