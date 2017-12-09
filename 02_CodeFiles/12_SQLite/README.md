@@ -15,7 +15,7 @@
 
 
 ***
-### Pi System with SQLite
+## Pi System with SQLite
 
 * SQLite DB Browser
 
@@ -31,4 +31,12 @@
 [PiSystemWithSQLite_NodeRED_Ver_0.2.txt](https://github.com/leehaesung/NodeRED/blob/master/02_CodeFiles/12_SQLite/02_SourceCodes/PiSystemWithSQLite_NodeRED_Ver_0.2.txt)
 
 ![PiSystemWithSQLite_NodeRED_Ver_0.2.png](https://github.com/leehaesung/NodeRED/blob/master/02_CodeFiles/12_SQLite/01_Images/PiSystemWithSQLite_NodeRED_Ver_0.2.png)
+
+
+***
+## Pi System with SQLite
+
+* Pi Sense HAT
+
+![PiSenseHAT.jpeg](https://github.com/leehaesung/NodeRED/blob/master/02_CodeFiles/12_SQLite/01_Images/PiSenseHAT.jpeg)
 
