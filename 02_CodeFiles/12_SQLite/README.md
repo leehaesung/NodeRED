@@ -37,7 +37,8 @@
 ## Pi Sense HAT with SQLite
 
 * Pi Sense HAT (Temperature, Humidity, Pressure, ACCEL/MAG/GYRO, LEDS)
-    * [Python Code (Jupyter-notebook)](https://github.com/leehaesung/NodeRED/blob/master/02_CodeFiles/12_SQLite/02_SourceCodes/SQLite3_with_Monitoring_IoT_Pi-SenseHAT_MQTT_VER_0.1.ipynb)
+    * [Python Code For Jupyter-notebook](https://github.com/leehaesung/NodeRED/blob/master/02_CodeFiles/12_SQLite/02_SourceCodes/SQLite3_with_Monitoring_IoT_Pi-SenseHAT_MQTT_VER_0.1.ipynb)
+    * [Python Code For Jupyter nbviwer](http://nbviewer.jupyter.org/github/leehaesung/NodeRED/blob/master/02_CodeFiles/12_SQLite/02_SourceCodes/SQLite3_with_Monitoring_IoT_Pi-SenseHAT_MQTT_VER_0.1.ipynb)
 
 ![PiSenseHAT.jpeg](https://github.com/leehaesung/NodeRED/blob/master/02_CodeFiles/12_SQLite/01_Images/PiSenseHAT.jpeg)
 
