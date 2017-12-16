@@ -1,8 +1,12 @@
 # ESP8266-01
 
 ***
+### (1) Data Analytics
 
-## Hardware 
+* [Python Code For Jupyter-notebook](http://nbviewer.jupyter.org/github/leehaesung/NodeRED/blob/master/02_CodeFiles/10_ESP8266-01/02_Codes/SQLite3_with_Monitoring_IoT_ESP8266-01_Temp_Hum_Sensor_MQTT.ipynb)
+
+
+### (2) Hardware 
 
 
 * ESP8266 With DHT11 Sensor
@@ -20,7 +24,7 @@
 
 ***
 
-## Software For Arduino
+### (3) Software For Arduino
 
 
 #### How To Setup
@@ -282,11 +286,9 @@ void loop() {
 ![ESP8266withDHT11_DashBoard_Node-RED.png](https://github.com/leehaesung/NodeRED/blob/master/02_CodeFiles/10_ESP8266-01/01_Images/ESP8266withDHT11_DashBoard_Node-RED.png)
 
 ***
-## SQLite3 with ESP8266-01 & DHT11 Sensor
+### (4) SQLite3 with ESP8266-01 & DHT11 Sensor
 
-* [(1) Source Code: Node-RED](https://github.com/leehaesung/NodeRED/blob/master/02_CodeFiles/10_ESP8266-01/02_Codes/SQLiteWithESP8266-01DHT_Node-RED.txt)
-
-* [(2) Source Code: Python](http://nbviewer.jupyter.org/github/leehaesung/NodeRED/blob/master/02_CodeFiles/10_ESP8266-01/02_Codes/SQLite3_with_Monitoring_IoT_ESP8266-01_Temp_Hum_Sensor_MQTT.ipynb)
+* [Source Code: Node-RED](https://github.com/leehaesung/NodeRED/blob/master/02_CodeFiles/10_ESP8266-01/02_Codes/SQLiteWithESP8266-01DHT_Node-RED.txt)
 
 
 * Node-RED Image
