@@ -25,3 +25,17 @@ Each Samsung ARTIK IoT module is a true System on Module (SoM), with CPUs, netwo
 
 ![ARTIK710_Board.jpg](https://github.com/leehaesung/NodeRED/blob/master/02_CodeFiles/13_ARTIK/01_Images/ARTIK710_Board.jpg)
 
+***
+## Node-RED @Processor Board
+
+![ARTIK710-SensorBoard_DashBoard.png](https://github.com/leehaesung/NodeRED/blob/master/02_CodeFiles/13_ARTIK/01_Images/ARTIK710-SensorBoard_DashBoard.png)
+
+
+***
+## Node-RED @AWS
+
+![ARTIK710-SensorBoard_DashBoard_AtAWS_NodeRED.png](https://github.com/leehaesung/NodeRED/blob/master/02_CodeFiles/13_ARTIK/02_Codes/ARTIK710-SensorBoard_DashBoard_AtAWS_NodeRED.png)
+
+
+
+
