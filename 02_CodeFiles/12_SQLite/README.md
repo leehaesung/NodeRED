@@ -40,6 +40,8 @@
 
 ![PiSenseHAT.jpeg](https://github.com/leehaesung/NodeRED/blob/master/02_CodeFiles/12_SQLite/01_Images/PiSenseHAT.jpeg)
 
+![PiSenseHAT_Details.jpg](https://github.com/leehaesung/NodeRED/blob/master/02_CodeFiles/12_SQLite/01_Images/PiSenseHAT_Details.jpg)
+
 
 * SQLite DB Browser with Pi-Sense HAT 
 
