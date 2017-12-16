@@ -1,0 +1,1 @@
+# Samsung ARTIK710
