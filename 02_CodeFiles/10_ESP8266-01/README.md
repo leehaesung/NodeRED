@@ -1,4 +1,4 @@
-# ESP8266-01 with DHT11 For Data Analytics
+# ESP8266-01 with DHT11 For IoT Data Analytics
 
 ***
 ### (1) Data Analytics
