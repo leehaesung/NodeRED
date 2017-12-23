@@ -1,4 +1,4 @@
-# Samsung ARTIK710
+# Samsung ARTIK710 For IoT Data Analytics
 
 ***
 ARTIK 710 gives you eight cores to serve effectively as a gateway for a large building or a factory and also run local analytics to improve latency and responsiveness. It also provides multiple connectivity solutions to communicate with your things, and has a high-end multimedia processor to handle video and audio processing.
