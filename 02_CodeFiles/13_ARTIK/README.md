@@ -28,6 +28,8 @@ Each Samsung ARTIK IoT module is a true System on Module (SoM), with CPUs, netwo
 ***
 ## (0) Data Ananlytics
 
+![ARTIK-710ForIoTDataAnalytics.png](https://github.com/leehaesung/NodeRED/blob/master/02_CodeFiles/13_ARTIK/01_Images/ARTIK-710ForIoTDataAnalytics.png)
+
 * [Python Code For Jupyter-notebook](https://github.com/leehaesung/NodeRED/blob/master/02_CodeFiles/13_ARTIK/02_Codes/SQLite3_with_Monitoring_IoT_ARTIK710-SensorBoard_MQTT_VER_0.1.ipynb)
 
 * [Python Code For Jupyter-nbviwer](http://nbviewer.jupyter.org/github/leehaesung/NodeRED/blob/master/02_CodeFiles/13_ARTIK/02_Codes/SQLite3_with_Monitoring_IoT_ARTIK710-SensorBoard_MQTT_VER_0.1.ipynb)
