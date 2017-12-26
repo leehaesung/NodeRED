@@ -5,6 +5,8 @@
 
 * [Python Code For Jupyter-notebook (VER0.2)](https://github.com/leehaesung/NodeRED/blob/master/02_CodeFiles/10_ESP8266-01/02_Codes/SQLite3_with_Monitoring_IoT_ESP8266-01_Temp_Hum_Sensor_MQTT_VER_0.2.ipynb)
 
+* [Jupyter notebook nbViewer (VER0.2)](http://nbviewer.jupyter.org/github/leehaesung/NodeRED/blob/master/02_CodeFiles/10_ESP8266-01/02_Codes/SQLite3_with_Monitoring_IoT_ESP8266-01_Temp_Hum_Sensor_MQTT_VER_0.2.ipynb)
+
 * [Python Code For Jupyter-notebook (VER0.1)](http://nbviewer.jupyter.org/github/leehaesung/NodeRED/blob/master/02_CodeFiles/10_ESP8266-01/02_Codes/SQLite3_with_Monitoring_IoT_ESP8266-01_Temp_Hum_Sensor_MQTT_VER_0.1.ipynb)
 
 ![ESP8266-01+DHT11ForIoTDataAnalytics.png](https://github.com/leehaesung/NodeRED/blob/master/02_CodeFiles/10_ESP8266-01/01_Images/ESP8266-01+DHT11ForIoTDataAnalytics.png)
