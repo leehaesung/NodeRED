@@ -45,11 +45,11 @@
 
 
 (2) Put the below the libries 
-  - Down load the libries. (Use wget or git clone.)
+  - Down load the libries. (Use wget or git clone from /home/ubuntu/Arduino)
   
-        https://github.com/adafruit/Adafruit_Sensor   
+        git clone https://github.com/knolleary/pubsubclient.git   
         
-        https://github.com/knolleary/pubsubclient/tree/master/src  
+        wget https://raw.githubusercontent.com/adafruit/Adafruit_Sensor/master/Adafruit_Sensor.h  
   
   - Put the libries at /home/ubuntu/Arduino/libraries
   
