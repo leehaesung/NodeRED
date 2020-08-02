@@ -51,9 +51,9 @@
 
 // Update these with values suitable for your network.
 
-const char* ssid = "iPhone7_leehaesung";   
-const char* password = "l24482448";
-const char* mqtt_server = "iot.eclipse.org";  // You can chose any mqtt sever web.
+const char* ssid = "Your ID";   
+const char* password = "Youer Password";
+const char* mqtt_server = "Youer IP";  // You can chose any mqtt sever web.
 
 WiFiClient espClient;
 PubSubClient client(espClient);
