@@ -5,11 +5,9 @@
 #define P2 2
 
 // Update these with values suitable for your network.
-const char* ssid = "iPhone7_leehaesung";   
-const char* password = "l24482448";
-//const char* ssid = "elite4";   
-//const char* password = "elite1234";
-const char* mqtt_server = "13.211.139.200";  // You can chose any mqtt sever web.
+const char* ssid = "Your ID";   
+const char* password = "Your Password";
+const char* mqtt_server = "Your IP address";  // You can chose any mqtt sever web.
 // another MQTT Servers:
 // "broker.mqtt-dashboard.com"
 // "broker.hivemq.com"
